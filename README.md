@@ -22,9 +22,9 @@ Site A's calling search spaces:
 
 Here, the common string between the device pool and the respective calling search spaces is "-SiteA".  This kind of consistency in naming is also a fairly common practice as it helps administrators keep track of these settings on a per-site basis.
 
-When the devicePoolQuery file is run, it will query CUCM for all devices in a specified device pool and retrieve the IP address for each phone.  It will verify that each phone is within the first and last host for that subnet as configured in that script.  It then checks the calling search space on the device and its respective line(s) to see if it/they share the same common string as its device pool.  If any misconfiguration is found, the script will use its server's local MTA (this has been tested with Sendmail, but of course any should work) to send a notification email to the specified recipients.  These scripts can be run as a cron job or from a web browser (which will provide a complete inventory of a device pool's phones).
+When the dp-siteName.py file is run, it will query CUCM for all devices in a specified device pool and retrieve the IP address for each phone.  It will verify that each phone is within the first and last host for that subnet as configured in that script.  It then checks the calling search space on the device and its respective line(s) to see if it/they share the same common string as its device pool.  If any misconfiguration is found, the script will send a notification email to the specified recipients.  These scripts can be run as a cron job or from a web browser (which will provide a complete inventory of a device pool's phones).
 
-NOTE:  At the time of this writing, Cisco is planning to deprecate the RPC form of soap in its AXL API in CUCM 11.0.  This is why there are two versions of the devicePoolQuery file - each has been written for their respective formats.  For more infomation on Cisco's WSDLs, please visit http://solutionpartnerdashboard.cisco.com/web/sxml-developer/get-wsdl  
+NOTE:  This repo is a complete rewrite of the application in the phoneAudit repo, which was written in PHP.
 
 Tested on:
 ----------
